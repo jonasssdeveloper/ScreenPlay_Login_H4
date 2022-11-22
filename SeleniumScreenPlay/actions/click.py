@@ -10,3 +10,4 @@ class Click:
             return WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, locator))).click()
         except Exception as inst:
             print("Error: when view element", inst)
+

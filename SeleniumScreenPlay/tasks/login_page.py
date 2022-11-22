@@ -32,8 +32,20 @@ class LoginPage:
             SendKeys().send_text(driver, LoginUi().input_user, user)
             SendKeys().send_text(driver, LoginUi().input_password, password)
             Click().click_element(driver, LoginUi().button)
-
+            Display().view_element(driver, LoginUi().xpath_error)
         except Exception as inst:
             print("Error: insert credential", inst)
 
+    def enter_saucelabs(self, driver: webdriver, user, password):
+        try:
+            Get().get(driver, LoginUi.base_url)
+            driver.maximize_window()
+            SendKeys().send_text(driver, LoginUi().input_user, user)
+            SendKeys().send_text(driver, LoginUi().input_password, password)
+            Click().click_element(driver, LoginUi().button)
+            Click().click_element(driver, LoginUi().burger_menu)
+            Click().click_element(driver, LoginUi().about)
+            Display().view_element(driver, LoginUi().xpath_images)
+        except Exception as inst:
+            print("Error: insert credential", inst)
 

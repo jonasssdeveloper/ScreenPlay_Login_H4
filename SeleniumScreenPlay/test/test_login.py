@@ -12,6 +12,9 @@ class Test_Login(unittest.TestCase):
 
     __user = 'standard_user'
     __password = 'secret_sauce'
+
+    __usuario ='a'
+    __contraseña = 'b'
     #__button = '//*[@id="login-button"]'
 
     @classmethod
@@ -30,10 +33,19 @@ class Test_Login(unittest.TestCase):
 
     def test3_login(self):
         driver = self.driver
-        LoginPage().enter_login(driver, self.__user, self.__password)
-        self.assertTrue()
+        page_pantalla = LoginPage().enter_login(driver, self.__usuario, self.__contraseña)
+        self.assertTrue(page_pantalla)
+
+    def test4_imagen(self):
+        driver = self.driver
+        page_saucelabs = LoginPage().enter_saucelabs(driver, self.__user, self.__password)
+        self.assertTrue(page_saucelabs)
+
+        #driver = self.driver
+        #LoginPage().enter_login(driver, self.__user, self.__password)
+        #self.assertTrue()
 
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    #@classmethod
+    #def tearDownClass(cls):
+     #   cls.driver.quit()
